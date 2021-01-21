@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-family: 'Inconsolata', monospace;
+    background-color: #31352E;
+}
+
+h3 {
+    color: #928D89;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.container {
+    position: relative;
+    max-width: 650px;
+    top: 35vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.typing-test {
+    color: #A49393;
+    font-size: 1.4rem;
+    margin: 1rem 0rem;
+}
+
+.word {
+    display: inline-block;
+}
+
+.correct {
+    color: #EED6D3;
+}
+
+.incorrect {
+    color: #B76767;
+}
+
+.cursor {
+    color: #000000;
+    background: #ffa07a;
+}
+
+.wpm {
+    color: #EED6D3;
+}
