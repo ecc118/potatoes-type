@@ -1,4 +1,10 @@
-//const text = "This is a test string, ok?";
-const text = `In philosophy, "the Absurd" refers to the conflict between the human tendency to seek inherent value and meaning in life, and the human inability to find any in a purposeless, meaningless or chaotic and irrational universe.`;
+const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random";
 
-export default text;
+const getQuote = async () => {
+    const response = await fetch(RANDOM_QUOTE_API_URL);
+    return response.json();
+};
+
+export {
+    getQuote,
+}

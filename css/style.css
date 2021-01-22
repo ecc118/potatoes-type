@@ -52,3 +52,9 @@ h3 {
 .wpm {
     color: #eed6d3;
 }
+
+.quote-author {
+    font-size: 1.1rem;
+    text-align: right;
+    margin-right: 3rem;
+}
