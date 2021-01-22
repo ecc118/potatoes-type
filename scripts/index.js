@@ -14,6 +14,7 @@ const status = {
     currentWord: 0,
     currentChar: 0,
     currentWordString: "",
+    previousWordString: "",
     correctWords: 0,
     startTime: 0,
     currentTime: 0,
@@ -39,15 +40,43 @@ document.addEventListener("keydown", (e) => {
         status.currentChar
     );
 
+    if (e.key == "Backspace") {
+        if (status.currentWord === 0 && status.currentChar === 0) return;
+        else {
+            if (status.currentChar === 0) {
+                if (words[status.currentWord - 1].correct) return;
+                status.currentWordString = status.previousWordString;
+                status.currentWord--;
+                status.currentChar = words[status.currentWord].word.length - 1;
+            } else {
+                status.currentChar--;
+            }
+            status.currentWordString = status.currentWordString.slice(0, -1);
+
+            currentCharEl.classList.remove("cursor");
+            const prevChar = elements.getCharSpan(
+                elements.container,
+                status.currentWord,
+                status.currentChar
+            );
+            prevChar.setAttribute("class", "letter");
+            prevChar.classList.add("cursor");
+        }
+
+        return;
+    }
+
     if (!checkIfChar(e.key)) {
+        // whitespace bullsitery
+        let key;
+        if (e.key.charCodeAt(0) == 32) key = "\xa0";
+        else key = e.key;
+        status.currentWordString = status.currentWordString + key;
         if (
             e.key == currentCharEl.innerText ||
             (e.key.charCodeAt(0) == 32 &&
                 currentCharEl.innerText.charCodeAt(0) == 160)
         ) {
-            status.currentWordString =
-                status.currentWordString +
-                words[status.currentWord][status.currentChar];
             currentCharEl.classList.add("correct");
         } else {
             currentCharEl.classList.add("incorrect");
@@ -56,12 +85,17 @@ document.addEventListener("keydown", (e) => {
         currentCharEl.classList.remove("cursor");
 
         let secondChar;
-        if (words[status.currentWord].length - 1 == status.currentChar) {
-            status.correctWords = checkIfCorrect(
-                status.correctWords,
-                status.currentWordString,
-                words[status.currentWord]
-            );
+        const checkedCorrect = checkIfCorrect(
+            status.correctWords,
+            status.currentWordString,
+            words[status.currentWord].word
+        );
+        if (words[status.currentWord].word.length - 1 == status.currentChar) {
+            status.correctWords = checkedCorrect.correctWords;
+            if (checkedCorrect.correct)
+                words[status.currentWord].correct = true;
+            status.previousWordString = status.currentWordString;
+
             elements.correctWordCount.innerText = status.correctWords;
             status.currentChar = 0;
             status.currentWord++;

@@ -1,8 +1,12 @@
 const getWords = (text) => {
     const arr = text.split(" ");
     const wordArray = arr.map((word, index) => {
-        if (index == arr.length - 1) return word;
-        return (word += "\xa0");
+        if (index == arr.length - 1) return { word, correct: false };
+        word += "\xa0";
+        return {
+            word,
+            correct: false,
+        };
     });
 
     return wordArray;
@@ -12,7 +16,7 @@ const addWords = (container, words) => {
     words.map((word, wordIndex) => {
         const div = document.createElement("div");
         div.setAttribute("class", "word");
-        word.split("").map((char, charIndex) => {
+        word.word.split("").map((char, charIndex) => {
             const span = document.createElement("span");
             span.setAttribute("class", "letter");
             span.innerText = char;
@@ -30,11 +34,13 @@ const checkIfChar = (key) => {
     return checkIfSingle;
 };
 
-const checkIfCorrect = (correct, word1, word2) => {
-    if (word1 == word2) {
-        correct++;
+const checkIfCorrect = (correctWords, word1, word2) => {
+    let correct = false;
+    if (word1 === word2) {
+        correctWords++;
+        correct = true;
     }
-    return correct;
+    return { correctWords, correct };
 };
 
 const getStartTime = () => {
