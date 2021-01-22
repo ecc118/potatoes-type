@@ -1,5 +1,13 @@
 import Text from "./text.js";
-import { getWords, addWords, checkIfChar, checkIfCorrect, getStartTime, getTimerTime, calcWpm } from "./utils.js";
+import {
+    getWords,
+    addWords,
+    checkIfChar,
+    checkIfCorrect,
+    getStartTime,
+    getTimerTime,
+    calcWpm,
+} from "./utils.js";
 import * as elements from "./elements.js";
 
 const status = {
@@ -15,7 +23,7 @@ const status = {
 const words = getWords(Text);
 addWords(elements.container, words);
 
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown", (e) => {
     if (e.key == "/") e.preventDefault();
 
     if (status.finished) {
@@ -32,31 +40,36 @@ document.addEventListener("keydown", e => {
     );
 
     if (!checkIfChar(e.key)) {
-        if (e.key == currentCharEl.innerText ||
+        if (
+            e.key == currentCharEl.innerText ||
             (e.key.charCodeAt(0) == 32 &&
-            currentCharEl.innerText.charCodeAt(0) == 160)) {
-
-            status.currentWordString = status.currentWordString +
+                currentCharEl.innerText.charCodeAt(0) == 160)
+        ) {
+            status.currentWordString =
+                status.currentWordString +
                 words[status.currentWord][status.currentChar];
             currentCharEl.classList.add("correct");
-        }
-        else {
+        } else {
             currentCharEl.classList.add("incorrect");
         }
 
         currentCharEl.classList.remove("cursor");
-    
+
         let secondChar;
         if (words[status.currentWord].length - 1 == status.currentChar) {
-            status.correctWords = checkIfCorrect(status.correctWords,
-                                                status.currentWordString,
-                                                words[status.currentWord]);
+            status.correctWords = checkIfCorrect(
+                status.correctWords,
+                status.currentWordString,
+                words[status.currentWord]
+            );
             elements.correctWordCount.innerText = status.correctWords;
             status.currentChar = 0;
             status.currentWord++;
 
-            const wpm = Math.floor(calcWpm(status.correctWords, getTimerTime(status.startTime)));
-            elements.wpmCount.innerText = wpm
+            const wpm = Math.floor(
+                calcWpm(status.correctWords, getTimerTime(status.startTime))
+            );
+            elements.wpmCount.innerText = wpm;
 
             status.currentWordString = "";
             if (status.currentWord < words.length)
@@ -79,5 +92,4 @@ document.addEventListener("keydown", e => {
         if (status.currentWord < words.length)
             secondChar.classList.add("cursor");
     }
-
 });

@@ -6,11 +6,6 @@ const getCharSpan = (container, currentWord, currentChar) => {
     const parents = [...container.children];
     const children = [...parents[currentWord].children];
     return children[currentChar];
-}
+};
 
-export {
-    container,
-    correctWordCount,
-    wpmCount,
-    getCharSpan,
-}
+export { container, correctWordCount, wpmCount, getCharSpan };

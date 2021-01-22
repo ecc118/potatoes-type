@@ -7,12 +7,12 @@
 }
 
 html {
-    font-family: 'Inconsolata', monospace;
-    background-color: #31352E;
+    font-family: "Inconsolata", monospace;
+    background-color: #31352e;
 }
 
 h3 {
-    color: #928D89;
+    color: #928d89;
     font-size: 1.5rem;
     margin-bottom: 3rem;
 }
@@ -26,7 +26,7 @@ h3 {
 }
 
 .typing-test {
-    color: #A49393;
+    color: #a49393;
     font-size: 1.4rem;
     margin: 1rem 0rem;
 }
@@ -36,11 +36,11 @@ h3 {
 }
 
 .correct {
-    color: #EED6D3;
+    color: #eed6d3;
 }
 
 .incorrect {
-    color: #B76767;
+    color: #b76767;
 }
 
 .cursor {
@@ -49,5 +49,5 @@ h3 {
 }
 
 .wpm {
-    color: #EED6D3;
+    color: #eed6d3;
 }
