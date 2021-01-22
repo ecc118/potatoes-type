@@ -40,12 +40,13 @@ h3 {
 }
 
 .incorrect {
-    color: #b76767;
+    color: #ffb2b2;
+    background-color: #8d6666;
 }
 
 .cursor {
     color: #000000;
-    background: #ffa07a;
+    background-color: #eed6d3;
 }
 
 .wpm {
