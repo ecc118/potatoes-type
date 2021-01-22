@@ -24,6 +24,8 @@ const status = {
 const words = getWords(Text);
 addWords(elements.container, words);
 
+elements.wordTotal.innerText = words.length;
+
 document.addEventListener("keydown", (e) => {
     if (e.key == "/") e.preventDefault();
 
