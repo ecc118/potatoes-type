@@ -10,6 +10,10 @@ import {
 } from "./utils.js";
 import * as elements from "./elements.js";
 
+window.addEventListener("load", () => {
+    elements.loader.parentElement.removeChild(elements.loader);
+});
+
 const status = {
     currentWord: 0,
     currentChar: 0,

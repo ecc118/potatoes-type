@@ -11,6 +11,19 @@ html {
     background-color: #31352e;
 }
 
+.loader {
+    position: absolute;
+    z-index: 99;
+    background-color: #31352e;
+    width: 100vw;
+    height: 100vh;
+    color: #eed6d3;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h3 {
     color: #928d89;
     font-size: 1.5rem;
