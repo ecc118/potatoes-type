@@ -11,10 +11,6 @@ import {
 } from "./utils.js";
 import * as elements from "./elements.js";
 
-window.addEventListener("load", () => {
-    elements.loader.parentElement.removeChild(elements.loader);
-});
-
 const status = {
     currentWord: 0,
     currentChar: 0,
@@ -31,8 +27,9 @@ getQuote()
         const words = getWords(data.content);
         addWords(elements.container, words);
         elements.author.innerText = data.author;
-
         elements.wordTotal.innerText = words.length;
+
+        elements.loader.parentElement.removeChild(elements.loader);
 
         document.addEventListener("keydown", (e) => {
             if (e.key == "/" || e.key == "'") e.preventDefault();
@@ -151,4 +148,7 @@ getQuote()
             }
         });
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+        console.log(error);
+        elements.loader.innerText = "can't get quotes :(";
+    });
