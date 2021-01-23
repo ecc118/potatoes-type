@@ -58,6 +58,18 @@ const calcWpm = (words, time) => {
     return wpm;
 };
 
+const chagePotatoeState = (wpm, potatoe) => {
+    if (wpm <= 40) {
+        potatoe.setAttribute("class", "potatoe potatoe-slow");
+    }
+    if (wpm > 40 && wpm < 80) {
+        potatoe.setAttribute("class", "potatoe potatoe-mod");
+    }
+    if (wpm >= 80) {
+        potatoe.setAttribute("class", "potatoe potatoe-fast");
+    }
+};
+
 export {
     getWords,
     addWords,
@@ -66,4 +78,5 @@ export {
     getStartTime,
     getTimerTime,
     calcWpm,
+    chagePotatoeState,
 };

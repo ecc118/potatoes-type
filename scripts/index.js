@@ -7,6 +7,7 @@ import {
     getStartTime,
     getTimerTime,
     calcWpm,
+    chagePotatoeState,
 } from "./utils.js";
 import * as elements from "./elements.js";
 
@@ -124,15 +125,8 @@ getQuote()
                         )
                     );
                     elements.wpmCount.innerText = wpm;
-                    if (wpm <= 40) {
-                        elements.potatoe.setAttribute("class", "potatoe potatoe-slow");
-                    }
-                    if (wpm > 40 && wpm < 80) {
-                        elements.potatoe.setAttribute("class", "potatoe potatoe-mod");
-                    }
-                    if (wpm >= 80) {
-                        elements.potatoe.setAttribute("class", "potatoe potatoe-fast");
-                    }
+
+                    chagePotatoeState(wpm, elements.potatoe);
 
                     status.currentWordString = "";
                     if (status.currentWord < words.length)
