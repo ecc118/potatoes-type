@@ -4,6 +4,7 @@ const wordTotal = document.querySelector(".word-total");
 const wpmCount = document.querySelector(".wpm");
 const author = document.querySelector(".author");
 const loader = document.querySelector(".loader");
+const potatoe = document.querySelector(".potatoe");
 
 const getCharSpan = (container, currentWord, currentChar) => {
     const parents = [...container.children];
@@ -19,4 +20,5 @@ export {
     getCharSpan,
     author,
     loader,
+    potatoe,
 };

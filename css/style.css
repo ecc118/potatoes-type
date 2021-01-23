@@ -32,9 +32,8 @@ h3 {
 
 .container {
     position: relative;
-    max-width: 650px;
+    max-width: 720px;
     top: 35vh;
-    display: block;
     margin: 0 auto;
 }
 
@@ -70,4 +69,36 @@ h3 {
     font-size: 1.1rem;
     text-align: right;
     margin-right: 3rem;
+}
+
+.potatoe-wrap {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.stats {
+    display: inline-block;
+    max-width: 500px;
+}
+
+.potatoe {
+    width: 150px;
+    height: 150px;
+    margin-right: 1rem;
+}
+
+.potatoe-idle {
+    background-image: url("./../img/potater-idle.gif");
+}
+
+.potatoe-slow {
+    background-image: url("./../img/potater-slow-typing.gif");
+}
+
+.potatoe-mod {
+    background-image: url("./../img/potater-mod-typing.gif");
+}
+
+.potatoe-fast {
+    background-image: url("./../img/potater-fast-typing.gif");
 }
