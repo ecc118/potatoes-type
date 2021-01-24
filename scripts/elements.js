@@ -3,7 +3,8 @@ const correctWordCount = document.querySelector(".word-count");
 const wordTotal = document.querySelector(".word-total");
 const wpmCount = document.querySelector(".wpm");
 const author = document.querySelector(".author");
-const loader = document.querySelector(".loader");
+const loaderApi = document.querySelector(".loader-api");
+const loaderPotatoe = document.querySelector(".loader-potatoe");
 const potatoe = document.querySelector(".potatoe");
 
 const getCharSpan = (container, currentWord, currentChar) => {
@@ -19,6 +20,7 @@ export {
     wpmCount,
     getCharSpan,
     author,
-    loader,
+    loaderApi,
+    loaderPotatoe,
     potatoe,
 };

@@ -22,6 +22,10 @@ const status = {
     finished: false,
 };
 
+window.addEventListener("load", () => {
+    elements.loaderPotatoe.parentElement.removeChild(elements.loaderPotatoe);
+});
+
 getQuote()
     .then((data) => {
         const words = getWords(data.content);
@@ -29,7 +33,7 @@ getQuote()
         elements.author.innerText = data.author;
         elements.wordTotal.innerText = words.length;
 
-        elements.loader.parentElement.removeChild(elements.loader);
+        elements.loaderApi.parentElement.removeChild(elements.loaderApi);
 
         document.addEventListener("keydown", (e) => {
             if (e.key == "/" || e.key == "'") e.preventDefault();

@@ -120,3 +120,7 @@ h3 {
 .potatoe-fast {
     background-image: url("./../img/potater-fast-typing.gif");
 }
+
+.preload {
+    display: none;
+}
