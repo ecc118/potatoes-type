@@ -1,4 +1,5 @@
 # potatoes-type
+https://ecc118.github.io/potatoes-type/index.html
 
 ![](img/potater-slow-typing.gif)
  
